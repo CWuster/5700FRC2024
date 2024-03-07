@@ -3,7 +3,6 @@ package frc.robot;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
@@ -74,7 +73,7 @@ public class RobotContainer {
         NamedCommands.registerCommand("ShootClose", new ShootClose(talonSRXMotors,shooter));
         NamedCommands.registerCommand("FireCMD", new FireCMD(talonSRXMotors,shooter));
         NamedCommands.registerCommand("SmartAutoIntake", new SmartAutoIntake(intake,talonSRXMotors));
-        NamedCommands.registerCommand("SmartAutoIntakeC", new SmartAutoIntakeOld(intake,talonSRXMotors));
+        NamedCommands.registerCommand("Bloop", new Bloop(talonSRXMotors, shooter));
 
        
 
@@ -160,18 +159,18 @@ public class RobotContainer {
 
     public void setLEDs() {
         if (DriverStation.isDisabled()) {
-            led.rainbow();
+            //led.rainbow();
         } 
         else {
             if (SmartDashboard.getBoolean("Shooting", false)) {
-                led.setAllBlink(Color.kGreen, 0.2);
+                led.setAllBlink(Color.kGreen, 0.15);
             }
             else if (SmartDashboard.getBoolean("Shot", false)) {
-                led.rainbow();
+                led.setAll(Color.kRed);
               
             }
             else if (SmartDashboard.getBoolean("Intaking", false)) {
-                led.setAllBlink(Color.kRed, 0.2);
+                led.setAllBlink(Color.kRed, 0.15);
             }
             else if(SmartDashboard.getBoolean("Note Got", false)){
                 led.setAll(Color.kGreen);
@@ -182,7 +181,7 @@ public class RobotContainer {
             }         
             
             else {
-            led.setAll(Color.kCyan);
+            led.setAll(Color.kBlue);
             //System.out.println("Cyan");
             } 
         }

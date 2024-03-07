@@ -7,12 +7,10 @@ package frc.robot.commands.Feeder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 
-import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.TalonSRXMotors;
 
 
 public class FeederDefaultCMD extends Command {
-  private Intake intake;
   private TalonSRXMotors talonSRXMotors;
 
 

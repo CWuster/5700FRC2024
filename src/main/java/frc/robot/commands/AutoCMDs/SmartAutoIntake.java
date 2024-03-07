@@ -18,7 +18,6 @@ public class SmartAutoIntake extends Command {
   private boolean beamH = false;
   private boolean beamL = false;
   private boolean clearBL;
-  private boolean lastStatus;
 
 
   /** Creates a new IntakeCMD. */
